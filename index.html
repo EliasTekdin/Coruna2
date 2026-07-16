@@ -7,17 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta property="og:determiner" content="auto" />
     <title>Coruna</title>
-    <meta charset="UTF-8">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-            background-color: #000; /* Fallback color */
-            background-image: url('neko.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: #000;
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -42,7 +37,7 @@
             font-size: 42px;
             font-weight: 700;
             letter-spacing: -1px;
-            background: linear-gradient(135deg, #6e80cd 0%, #8a9bbe 50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -50,7 +45,7 @@
 
         .subtitle {
             font-size: 14px;
-            color: #454545;
+            color: #666;
             margin-top: 6px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -59,7 +54,7 @@
         .status-card {
             margin-top: 30px;
             width: 100%;
-            background: rgba(17, 17, 17, 0.3); /* Added transparency */
+            background: #111;
             border-radius: 16px;
             padding: 20px;
             border: 1px solid #222;
@@ -101,7 +96,7 @@
             overflow-y: auto;
             font-family: 'SF Mono', 'Menlo', monospace;
             font-size: 11px;
-            color: #ffffff;
+            color: #888;
             line-height: 1.6;
             scrollbar-width: none;
         }
@@ -113,7 +108,7 @@
             word-break: break-all;
         }
 
-        .log-line.highlight { color: #6996db; }
+        .log-line.highlight { color: #667eea; }
         .log-line.error { color: #d9534f; }
         .log-line.success { color: #5cb85c; }
 
@@ -126,7 +121,7 @@
             font-size: 17px;
             font-weight: 600;
             color: #fff;
-            background: linear-gradient(135deg, rgba(107, 162, 244, 0.6) 0%, rgba(77, 107, 160, 0.6) 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             cursor: pointer;
             transition: opacity 0.2s, transform 0.1s;
             -webkit-tap-highlight-color: transparent;
@@ -151,7 +146,7 @@
         .progress-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #92b6f3 0%, #8a9bbe 50%, #6c92f2 100%);
+            background: linear-gradient(90deg, #667eea, #764ba2);
             border-radius: 2px;
             transition: width 0.4s ease;
         }
@@ -192,9 +187,8 @@
             border: 1px solid #222;
             border-radius: 20px;
             font-size: 13px;
-            color: #d6d6d6;
+            color: #999;
             text-decoration: none;
-            opacity: 0.5;
             transition: border-color 0.2s, color 0.2s;
         }
 
@@ -224,11 +218,11 @@
 
         .made-by-tag {
             padding: 6px 14px;
-            background: linear-gradient(135deg, rgba(107, 162, 244, 0.6) 0%, rgba(77, 107, 160, 0.6) 100%); /* Increased opacity for better visibility */
+            background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15));
             border: 1px solid rgba(102,126,234,0.3);
             border-radius: 20px;
             font-size: 13px;
-            color: #ffffff;
+            color: #a8b4f0;
             font-weight: 500;
             text-decoration: none;
         }
@@ -264,17 +258,17 @@
 
 <body>
     <div class="container">
-        <div class="logo">Neko Coruna</div>
+        <div class="logo">Coruna</div>
         <div class="subtitle">iOS 13.0 &ndash; 17.2.1</div>
 
         <div class="version-warning" id="versionWarning">
-            你的iOS版本高于17.2.1了哦~不过你可以继续浏览这个网页喵~
+            Your iOS version is higher than 17.2.1. The exploit will not work on your device, but you can still view the page.
         </div>
 
         <div class="status-card">
             <div class="status-header">
                 <div class="status-dot waiting" id="statusDot"></div>
-                <div class="status-text" id="statusText">准备就绪</div>
+                <div class="status-text" id="statusText">Ready</div>
             </div>
             <div class="log-area" id="logArea"></div>
         </div>
@@ -283,7 +277,7 @@
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
-        <button class="go-btn" id="goBtn" onclick="startExploit()">Exploit!</button>
+        <button class="go-btn" id="goBtn" onclick="startExploit()">Jailbreak</button>
 
         <div class="divider"></div>
 
@@ -314,14 +308,12 @@
         </div>
 
         <div style="margin-top:16px; padding:12px 16px; font-size:12px; color:#888; line-height:1.5; text-align:center;">
-            我们逆向并删除了样本中所有的恶意代码 &mdash; 可以放心运行<br>
+            We've reverse engineered and removed all the malware components &mdash; it's safe to run.<br>
             Source: <a href="https://github.com/khanhduytran0/coruna" target="_blank" style="color:#a8b4f0;">github.com/khanhduytran0/coruna</a>
         </div>
 
         <div class="footer">
-            网页UI是VibeCoding出来的,仅供研究学习 :P 
-            <br>
-            由<a href="https://github.com/Lin-neko/">Lin_neko</a>汉化,代码全部托管在GitHub,无任何恶意内容喵<br>o(*￣▽￣*)o
+            Vibe coded web site UI, for fun and research only :P
         </div>
     </div>
 
@@ -347,7 +339,7 @@
             } else if (!/iPhone|iPad|iPod/.test(ua)) {
                 // Not an iOS device at all - show warning
                 document.getElementById('versionWarning').classList.add('show');
-                document.getElementById('versionWarning').textContent = '这个工具是为iOS 13.0 \u2013 iOS 17.2.1 设备设计的哦,不过你依然可以浏览这个界面呀~';
+                document.getElementById('versionWarning').textContent = 'This tool is designed for iOS 13.0 \u2013 17.2.1 devices only. You can still view the page.';
             }
         })();
 
@@ -590,7 +582,7 @@
             let stage1Module;
             const offsets = platformModule.platformState.versionFlags;
 
-            setStatus("阶段 1: WebKit 漏洞利用...", "running");
+            setStatus("Stage 1: WebKit exploit...", "running");
             window.log("[LOADER] Selecting stage1 variant...");
 
             if (offsets.JtEUci) {
@@ -605,7 +597,7 @@
                 stage1Module = await globalThis.moduleManager.getModuleByURL("7d8f5bae97f37aa318bccd652bf0c1dc38fd8396");
             }
 
-            if (void 0 === stage1Module) { setStatus("喵?你那是什么设备啊,没有对应的exp呢", "error"); return 1001; }
+            if (void 0 === stage1Module) { setStatus("No exploit for this version", "error"); return 1001; }
             setProgress(20);
 
             await (async function executeStage1() {
@@ -629,7 +621,7 @@
 
             if (!platformModule.platformState.exploitPrimitive) throw Error("");
             setProgress(40);
-            setStatus("阶段 2: PAC绕过...", "running");
+            setStatus("Stage 2: PAC bypass...", "running");
 
             // Stage 2 + 3
             platform = 0;
@@ -643,7 +635,7 @@
                 }
 
                 setProgress(70);
-                setStatus("阶段 3: 沙箱逃逸...", "running");
+                setStatus("Stage 3: Sandbox escape...", "running");
 
                 if (true === offsets.wC3yaB && true === platformModule.platformState.qn) {
                     window.log("[STAGE3] Loading variant A...");
@@ -679,7 +671,7 @@
 
             var btn = document.getElementById('goBtn');
             btn.disabled = true;
-            btn.textContent = '运行中...';
+            btn.textContent = 'Running...';
 
             document.getElementById('progressBar').classList.add('active');
             setProgress(0);
@@ -687,21 +679,21 @@
             try {
                 const result = await triggerExploit();
                 if (result === 0) {
-                    setStatus("完成啦! 插件已经注入成功了哦", "success");
+                    setStatus("Success! Tweaks injected", "success");
                     setProgress(100);
-                    btn.textContent = '喵呜~';
+                    btn.textContent = 'Done';
                 } else if (result === 1001) {
-                    btn.textContent = '不支持的设备哦';
+                    btn.textContent = 'Unsupported';
                 } else if (result === 1003) {
-                    btn.textContent = '虚拟机喵?';
+                    btn.textContent = 'Simulator';
                 } else {
-                    setStatus("完成 (code: " + result + ")", "success");
+                    setStatus("Finished (code: " + result + ")", "success");
                     setProgress(100);
                     btn.textContent = 'Done';
                 }
             } catch (e) {
-                setStatus("出错了: " + (e.message || "unknown error"), "error");
-                btn.textContent = '再试试喵?';
+                setStatus("Failed: " + (e.message || "unknown error"), "error");
+                btn.textContent = 'Retry';
                 btn.disabled = false;
                 exploitStarted = false;
             }
