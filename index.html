@@ -514,29 +514,14 @@
         globalThis.moduleManager.setBaseUrl(baseUrl);
         globalThis.moduleManager.setSalt("cecd08aa6ff548c2");
 		
-		// ======== START PATCH ========
-(function() {
-    const hardcodedCDN = "https://eliastekdin.github.io/Coruna2/";
-    const origFetch = window.fetch;
-    window.fetch = function(resource, config) {
-        if (typeof resource === 'string' && resource.includes(hardcodedCDN)) {
-            const redirectedUrl = resource.replace(hardcodedCDN, baseUrl);
-            console.log("[PATCH] Redirecting fetch:", resource, "→", redirectedUrl);
-            return origFetch(redirectedUrl, config);
-        }
-        return origFetch(resource, config);
-    };
-    const origOpen = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function(method, url, ...rest) {
-        if (typeof url === 'string' && url.includes(hardcodedCDN)) {
-            const redirectedUrl = url.replace(hardcodedCDN, baseUrl);
-            console.log("[PATCH] Redirecting XHR:", url, "→", redirectedUrl);
-            return origOpen.call(this, method, redirectedUrl, ...rest);
-        }
-        return origOpen.call(this, method, url, ...rest);
-    };
-})();
-// ======== END PATCH ========
+		// Register service worker for URL interception
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+        console.log('[SW] Service worker registered');
+    }).catch(err => {
+        console.log('[SW] Registration failed:', err);
+    });
+}
 
         // Telemetry removed
         function fqMaGkNr(W) { }
