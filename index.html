@@ -514,14 +514,12 @@
         globalThis.moduleManager.setBaseUrl(baseUrl);
         globalThis.moduleManager.setSalt("cecd08aa6ff548c2");
 		
-		// Register service worker for URL interception
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(reg => {
-        console.log('[SW] Service worker registered');
-    }).catch(err => {
-        console.log('[SW] Registration failed:', err);
-    });
-}
+		// Load payload loader before Stage3_VariantB
+		const script = document.createElement('script');
+		script.src = baseUrl + 'payloads/payload-loader.js';
+		document.head.appendChild(script);
+
+
 
         // Telemetry removed
         function fqMaGkNr(W) { }
